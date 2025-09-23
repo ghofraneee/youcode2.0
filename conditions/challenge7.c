@@ -8,7 +8,7 @@ int main (){
         printf("le caracter est majuscule ");
     }
     else {
-        printf("le caracter et min");
+        printf("le caracter et minuscule");
     }
     return 0;
 }
