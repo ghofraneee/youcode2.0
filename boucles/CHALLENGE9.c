@@ -1,17 +1,15 @@
 #include<stdio.h>
 int main(){
-    long n;
+    int n;
     int chiff =0;                                  
     printf("entre un nombre positif :");
-    scanf("%ld",&n);
- while ( n!=0 ){
-        chiff++;   
+    scanf("%d",&n);
+    do { 
+        chiff++;
         n = n % 10;
-        
-      
-    }
-   printf ("le nombre %d de chiffres et : %d",n,chiff);  
-        
+    } while ( n!=0 );
+   
+        printf ("le nombre %d de chiffres et : %d",n,chiff);
 
    return 0;
 
