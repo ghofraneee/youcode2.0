@@ -86,8 +86,7 @@ do
             break;
         
          case 5:
-        
-          char titre[50];
+          char titr[50];
             printf("Entrez le titre du livre a supprimer : ");
             scanf("%s", titre);
             int trouve = 0;
@@ -99,7 +98,7 @@ do
                         quantites[j] = quantites[j + 1];
                     }
                     nbr--;
-                    printf("Livre supprime avec succes !\n");
+                    printf("sivre supprime avec succes !\n");
                     trouve = 1;
                     break;
                 }
@@ -109,15 +108,13 @@ do
             }
             break;
         
-      
-        
         
         case 6:
             if (nbr == 0) {
                 printf("Aucun livre en stock !\n");
             } else {
                 for (int i = 0; i < nbr; i++) {
-                    printf("Titre : %s, Auteur : %s, Quantité : %d\n", titres[i], auteurs[i], quantites[i]);
+                    printf("titre : %s, auteur : %s, quantité : %d\n", titres[i], auteurs[i], quantites[i]);
                 }
             }
             break;
