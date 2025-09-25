@@ -25,6 +25,5 @@ int main() {
     for (i = 0; i < nbr; i++) {
         printf("%d \n ", e.notes[i]);
     }
-
     return 0;
 }
