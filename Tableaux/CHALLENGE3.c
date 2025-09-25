@@ -11,7 +11,7 @@
         scanf ("%d",&T[i]);
     }
 
-    //Affichage
+    
     for (int i=0;i<taille;i++){
         printf ("T[%d] : %d \n",i,T[i]);
     }
