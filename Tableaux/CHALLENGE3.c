@@ -1,21 +1,19 @@
-   #include<stdio.h>
-   int main(){
-    int taille;
-    printf ("Entre le taille : ");
-    scanf ("%d",&taille);
+#include <stdio.h>
 
-   int T[taille];
-
-     for (int i=0;i<taille;i++){
-        printf ("T[%d] : ",i);
-        scanf ("%d",&T[i]);
+int main() {
+    int n, i, somm = 0; 
+    int t[100];   
+    printf("entrez le nombre d'elements  : ");
+    scanf("%d", &n);
+    printf("entrez les %d elements : \n", n);
+    for (i = 0; i < n; i++) {
+        printf("element %d : ", i + 1);
+        scanf("%d", &t[i]); 
     }
-
-    
-    for (int i=0;i<taille;i++){
-        printf ("T[%d] : %d \n",i,T[i]);
+    for (i = 0; i < n; i++) {
+        somm = somm + t[i]; 
     }
+    printf("la somm totale des elements du tableau est : %d\n", somm);
 
-    return 0;
-   }
-   
+    return 0; 
+}
