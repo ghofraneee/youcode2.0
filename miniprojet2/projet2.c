@@ -244,14 +244,3 @@ void rechercher() {
     }
 }
 
-int emailvalidation(const char *email) {
-    int a = 0, point = 0;
-
-    for (int i = 0; email[i] != '\0'; i++) {
-        if (email[i] == '@') a = 1;
-        else if (a && email[i] == '.') point = 1;
-        else if (isspace(email[i])) return 0; 
-    }
-
-    return (a && point);
-}
