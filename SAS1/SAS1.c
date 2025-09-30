@@ -11,7 +11,7 @@ typedef struct
     int id;
     char nom[ML];
     char prenom[ML];
-    int numeroMaillot;
+    char numeroMaillot [ML];
     char poste[ML];
     int age;
     int buts;
@@ -20,6 +20,7 @@ joueur g[MC];
 int count = 0;
 int newid = 1;
 int choix;
+int choix2;
 
 int menu();
 void ajouter();
@@ -75,12 +76,61 @@ int main(){
             break;
             
         default:
-        print
+        printf("error\n");
             break;
         }
-    } while (condition);
-    
+    } while (choix !=7);
+    return 0;
 }
+void ajouter (){
+    if (count < MC) {
+        printf("\n===== AJOUTER UN JOUEUR =====\n");
+
+        printf("Entrez le nom : \n");
+        fgets(g[count].nom, ML, stdin);
+        g[count].nom[strcspn(g[count].nom, "\n")] = 0;
+
+        printf("Entrez le prenom : \n");
+        fgets(g[count].prenom, ML, stdin);
+        g[count].prenom[strcspn(g[count].prenom,  "\n")]=0;
+
+        printf("Entrez votre numero de maillot :\n");
+        fgets(g[count].numeroMaillot, ML,stdin);
+        g[count].numeroMaillot[strcspn(g[count].numeroMaillot, "\n")]=0;
+
+        printf("choisir votre poste : \n");
+        printf("1-gardien\n");
+        printf("2-Défenseur \n");
+        printf("3-millieu\n");
+        printf("4-attaquant\n");
+
+        scanf("%d",&choix2);
+            switch (choix2)
+        {
+        case 1:
+        strcpy(g[count].poste , "gardien");
+            
+            break;
+        case 2:
+                strcpy(g[count].poste , "Défenseur");
+
+            break;
+        case 3:
+                strcpy(g[count].poste , "millieu");
+
+            break;
+        case 4:
+                strcpy(g[count].poste , "attaquant");
+        break;
+        default:
+        printf("invalid choix\n");
+            break;
+        }
+        
+        
+        
+
+}}
 
 
 
