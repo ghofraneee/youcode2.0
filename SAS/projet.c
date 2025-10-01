@@ -55,16 +55,12 @@ int main(){
            afficher();
            break;
         case 3:
-           modifier();
            break;
         case 4:
-           supprimer();
            break;
         case 5:
-           rechercher();
            break;
         case 6:
-            statistiques();
             break;
         case 7:
              printf("Au revoir\n");
