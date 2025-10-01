@@ -96,16 +96,15 @@ int main(){
            afficher();
            break;
         case 3:
-          modifier();
+           modifier();
            break;
         case 4:
-           supprimer();
            break;
         case 5:
-        /*rechercher();*/
+           rechercher();
            break;
         case 6:
-           /* statistiques();*/
+            statistiques();
             break;
         case 7:
              printf("Au revoir\n");
