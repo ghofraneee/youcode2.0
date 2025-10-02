@@ -178,10 +178,10 @@ void ajouterunique() {
 
     printf("entrez l'espèce :\n");
     scanf("%s", A[taille].espece);
-
+do{
     printf("entrez l'age de animal:\n");
     scanf("%d", &A[taille].age);
-
+}while(A[taille].age < 0||A[taille].age >100);
     while (1) {
         printf("entrez habitat (Savane, Jungle, Desert, Aquatique) :\n");
         scanf("%s", A[taille].habitat);
