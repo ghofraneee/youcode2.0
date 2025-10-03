@@ -16,7 +16,6 @@ typedef struct
 }Animal;
 Animal A[M];
 char zoohabitat[4][10] = {"Savane", "Jungle", "Desert", "Aquatique"};
-char habitatCherche[M];
 int taille=0;
 int dernierID =1;
 int newid;
@@ -68,7 +67,7 @@ void initZoo() {
         {15, "Bella",   "Chevre",     2,  "Desert",  25.0},
         {16, "Charly",  "Chameau",    7,  "Desert",   400.0},
         {17, "Daisy",   "Dauphin",   12,  "Aquatique", 200.0},
-        {18, "Rex",     "Chien",      6,  "Maison",    20.0},   
+        {18, "Rex",     "Chien",      6,  "Savana",    20.0},   
         {19, "Coco",    "Crocodile",  9,  "Aquatique",   500.0},
         {20, "Momo",    "Mouette",    3,  "Savane",     1.5}
     };
@@ -114,11 +113,11 @@ int main(){
         case 5:
            rechercher();
            break;
-        /*case 6:
+        case 6:
             statistiques();
-            break;*/
+            break;
         case 7:
-             printf("Au revoir\n");
+             printf("See you\n");
             break;
         
         default:
@@ -150,7 +149,8 @@ void ajouter() {
          break;
         case 2: ajouterplus();
          break;
-        default: printf("choix invalide.\n");
+        default: 
+        printf("choix invalide\n");
     }
 }
 int habitatvalide(char habitat[]) {
@@ -189,7 +189,7 @@ do{
         if (habitatvalide(A[taille].habitat)) {
             break;
         } else {
-            printf("habitat invalide ! choisir parmi : Savane, Jungle, Desert, Aquatique\n");
+            printf(" choisir parmi : Savane, Jungle, Desert, Aquatique\n");
         }
     }
 
@@ -250,7 +250,6 @@ void afficher() {
     }
 
 }
-
 void afficherlist(){
         printf("\n======= LISTE DES ANIMAUX =======\n");
         for (int i = 0; i < taille; i++) {
@@ -392,7 +391,7 @@ void modifierhabitat(){
                     printf("Habitat modifié avec succès pour l'animal ID %d\n", idAnimal);
                     break;
                 } else {
-                    printf("Habitat invalide .\nchoisir parmi : Savane, Jungle, Desert, Aquatique\n");
+                    printf("choisir parmi : Savane, Jungle, Desert, Aquatique\n");
                 }
             }
             break;
@@ -416,11 +415,11 @@ void modifierage() {
     for (int i = 0; i < taille; i++) {
         if (strcmpi(A[i].nom, nom) == 0) {
             A[i].age = nouvage;
-            printf("Âge modifié avec succès pour %s\n", A[i].nom);
+            printf("age modifié avec succès pour %s\n", A[i].nom);
             return;
         }
     }
-    printf("Animal non trouvé\n");
+    printf("Animal non trouve\n");
 }
 void supprimer() {
     if (taille == 0) {
@@ -474,7 +473,7 @@ void rechercher() {
          break;
          case 3 :
          rechercherparespece();
-        default: printf("choix invalide.\n");
+        default: printf("choix invalide\n");
     }
 }
 void rechercherparid(){
@@ -556,29 +555,44 @@ void rechercherparespece(){
         printf("Aucun animal trouvé avec l'espèce \"%s\".\n", espece);
     }
 }
-void statistique(){
-        int choix7;
-
+void statistique() {
+    int choix;
     printf("\n===== STATISTIQUES =====\n");
-    printf("1 - Nombre total d'animaux dans le zoo\n");
+    printf("1 - Nombre total d'animaux\n");
     printf("2 - Age moyen des animaux\n");
-    printf("3 - Plus vieux et plus jeune animal\n");
-    printf("3 - Afficher les espèces les plus représentées.\n");
-
-
+    printf("3 - Plus jeune et plus vieux animal\n");
+    printf("4 - Espèces les plus représentées\n");
     printf("Entrez votre choix : ");
-    scanf("%d", &choix7);
+    scanf("%d", &choix);
 
-    switch (choix7) {
+    switch(choix) {
         case 1: 
-        rechercherparid();
-         break;
+        nbrtotal(); 
+        break;
         case 2: 
-        rechercherparnom();
+        agemoyen(); 
+        break;
+        case 3: 
+        plusjeune();
          break;
-         case 3 :
-         rechercherparespece();
-        default: printf("choix invalide.\n");
+        default: 
+        printf("Choix invalide\n"); break;
     }
 }
+
+void nbrtotal() {
+    printf("Nombre total d'animaux dans le zoo : %d\n", taille);
+}
+
+void agemoyen() {
+    if (taille == 0) {
+        printf("Aucun animal dans le zoo.\n");
+        return;
+    }
+    int somme = 0;
+    for (int i = 0; i < taille; i++) somme += A[i].age;
+    float moyenne = (float)somme / taille;
+    printf("Âge moyen des animaux : %.2f \n", moyenne);
+}
+
 
